@@ -1,0 +1,4 @@
+/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/GraphEditor.dir
+/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/edit_cache.dir
+/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/rebuild_cache.dir
+/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/GraphEditor_autogen.dir

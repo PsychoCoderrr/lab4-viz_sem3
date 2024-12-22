@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_GraphEditor_FILE /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor)
+set(__QT_DEPLOY_TARGET_GraphEditor_TYPE EXECUTABLE)
