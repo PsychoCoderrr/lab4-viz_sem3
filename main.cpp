@@ -17,6 +17,7 @@
 #include "Graph.hpp"
 #include "MainWindow.hpp"
 #include "GraphScene.hpp"
+#include "tests.hpp"
 
 GraphScene::GraphScene(Graph<int> *graph, QObject *parent)
     : QGraphicsScene(parent), graph(graph), currentVertexId(0), startVertex(nullptr) {}
@@ -289,6 +290,7 @@ void MainWindow::clearScene() {
 }
 
 int main(int argc, char *argv[]) {
+    TestDijkstra();
     QApplication app(argc, argv);
 
     MainWindow window;

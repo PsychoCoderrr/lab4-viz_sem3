@@ -1123,4 +1123,6 @@ CMakeFiles/GraphEditor.dir/main.cpp.o: \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/qmessagebox.h \
   /opt/homebrew/Cellar/qt/6.7.3/include/QtWidgets/qdialogbuttonbox.h \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/MainWindow.hpp \
-  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphScene.hpp
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphScene.hpp \
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/tests.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/cassert
