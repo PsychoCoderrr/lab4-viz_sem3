@@ -25,6 +25,8 @@ private:
     Graph<int> *graph;
     GraphScene *scene;
     QGraphicsView *view;
+    int selectedStartVertex = -1;
+    int selectedEndVertex = -1;
 };
 
 #endif //LAB4_MAIN_WINDOW

@@ -68,11 +68,11 @@ include CMakeFiles/GraphEditor_autogen.dir/progress.make
 
 CMakeFiles/GraphEditor_autogen: GraphEditor_autogen/timestamp
 
-GraphEditor_autogen/timestamp: /opt/homebrew/share/qt/libexec/moc
-GraphEditor_autogen/timestamp: /opt/homebrew/share/qt/libexec/uic
+GraphEditor_autogen/timestamp: /opt/homebrew/Cellar/qt/6.7.3/share/qt/libexec/moc
+GraphEditor_autogen/timestamp: /opt/homebrew/Cellar/qt/6.7.3/share/qt/libexec/uic
 GraphEditor_autogen/timestamp: CMakeFiles/GraphEditor_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target GraphEditor"
-	/opt/homebrew/bin/cmake -E cmake_autogen /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/GraphEditor_autogen.dir/AutogenInfo.json ""
+	/opt/homebrew/bin/cmake -E cmake_autogen /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/GraphEditor_autogen.dir/AutogenInfo.json Debug
 	/opt/homebrew/bin/cmake -E touch /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor_autogen/timestamp
 
 CMakeFiles/GraphEditor_autogen.dir/codegen:

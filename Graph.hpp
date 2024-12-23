@@ -16,7 +16,10 @@ public:
     
     Graph() = default;
     
-    
+    DynamicArray<Vertex<T>> GetVertexArray()
+    {
+        return graph;
+    }
     
     void AddVertex(T vertexName)
     {
@@ -329,6 +332,11 @@ public:
             }
         }
         return path;
+    }
+    
+    Vertex<T> Get(int index)
+    {
+        return graph[index];
     }
     
     void topologicalSort(DynamicArray<int> &topologicalSort)

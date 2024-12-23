@@ -17,6 +17,10 @@ private:
     Graph<int> *graph;
     int currentVertexId;
     QGraphicsEllipseItem *startVertex;
+    QGraphicsEllipseItem *selectedStartVertex = nullptr;
+    QGraphicsEllipseItem *selectedEndVertex = nullptr;
+signals:
+    void verticesSelected(int startVertex, int endVertex);
 };
 
-#endif //LAB4_GRAPh_SCENE
+#endif //LAB4_GRAPH_SCENE

@@ -69,11 +69,11 @@ include CMakeFiles/GraphEditor.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GraphEditor.dir/flags.make
 
-GraphEditor_autogen/timestamp: /opt/homebrew/share/qt/libexec/moc
-GraphEditor_autogen/timestamp: /opt/homebrew/share/qt/libexec/uic
+GraphEditor_autogen/timestamp: /opt/homebrew/Cellar/qt/6.7.3/share/qt/libexec/moc
+GraphEditor_autogen/timestamp: /opt/homebrew/Cellar/qt/6.7.3/share/qt/libexec/uic
 GraphEditor_autogen/timestamp: CMakeFiles/GraphEditor.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target GraphEditor"
-	/opt/homebrew/bin/cmake -E cmake_autogen /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/GraphEditor_autogen.dir/AutogenInfo.json ""
+	/opt/homebrew/bin/cmake -E cmake_autogen /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles/GraphEditor_autogen.dir/AutogenInfo.json Debug
 	/opt/homebrew/bin/cmake -E touch /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor_autogen/timestamp
 
 CMakeFiles/GraphEditor.dir/codegen:
@@ -118,9 +118,9 @@ GraphEditor_EXTERNAL_OBJECTS =
 GraphEditor: CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.o
 GraphEditor: CMakeFiles/GraphEditor.dir/main.cpp.o
 GraphEditor: CMakeFiles/GraphEditor.dir/build.make
-GraphEditor: /opt/homebrew/lib/QtWidgets.framework/Versions/A/QtWidgets
-GraphEditor: /opt/homebrew/lib/QtGui.framework/Versions/A/QtGui
-GraphEditor: /opt/homebrew/lib/QtCore.framework/Versions/A/QtCore
+GraphEditor: /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Versions/A/QtWidgets
+GraphEditor: /opt/homebrew/Cellar/qt/6.7.3/lib/QtGui.framework/Versions/A/QtGui
+GraphEditor: /opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/QtCore
 GraphEditor: CMakeFiles/GraphEditor.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable GraphEditor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GraphEditor.dir/link.txt --verbose=$(VERBOSE)
