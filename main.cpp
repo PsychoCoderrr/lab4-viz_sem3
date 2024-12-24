@@ -232,43 +232,45 @@ void MainWindow::runTopologicalSort() {
             vertexPositions.append(pos); // Сохраняем позицию вершины
         }
 
-        // Восстанавливаем дуги между вершинами
-        for (size_t i = 0; i < sortedVertices.get_size(); ++i) {
-            int fromVertex = sortedVertices[i];
 
-            // Получаем все исходящие дуги для текущей вершины
-            for (const auto &arc : graph->Get(i).list) {
-                int toVertex = arc.GetLast();
+    for (size_t i = 0; i < sortedVertices.get_size(); ++i) {
+        int fromVertex = sortedVertices[i];
 
-                // Ищем индексы вершин в отсортированном массиве
-                int fromIndex = -1, toIndex = -1;
-                for (size_t j = 0; j < sortedVertices.get_size(); ++j) {
-                    if (sortedVertices[j] == fromVertex) {
-                        fromIndex = j;
-                    }
-                    if (sortedVertices[j] == toVertex) {
-                        toIndex = j;
-                    }
+        // Ищем вершину по её имени
+        for (const auto &arc : graph->Get(fromVertex).list) {
+            int toVertex = arc.GetLast();
+
+            // Определяем индексы вершин
+            int fromIndex = -1, toIndex = -1;
+            for (size_t j = 0; j < sortedVertices.get_size(); ++j) {
+                if (sortedVertices[j] == fromVertex) {
+                    fromIndex = j;
                 }
-
-                // Если обе вершины найдены
-                if (fromIndex != -1 && toIndex != -1) {
-                    QPointF startPos = vertexPositions[fromIndex];
-                    QPointF endPos = vertexPositions[toIndex];
-
-                    // Создаём изогнутую дугу
-                    QPainterPath path(startPos);
-                    QPointF controlPoint((startPos.x() + endPos.x()) / 2, startPos.y() - 50); // Контрольная точка
-                    path.quadTo(controlPoint, endPos);
-
-                    scene->addPath(path, QPen(Qt::black)); // Добавляем дугу на сцену
-
-                    // Добавляем текст с весом дуги
-                    QPointF textPos = (startPos + endPos) / 2 + QPointF(0, -30);
-                    scene->addText(QString::number(arc.GetWeight()))->setPos(textPos);
+                if (sortedVertices[j] == toVertex) {
+                    toIndex = j;
                 }
             }
+
+            // Убеждаемся, что обе вершины найдены
+            if (fromIndex != -1 && toIndex != -1) {
+                QPointF startPos = vertexPositions[fromIndex];
+                QPointF endPos = vertexPositions[toIndex];
+
+                // Создаём путь для дуги
+                QPainterPath path(startPos);
+                QPointF controlPoint((startPos.x() + endPos.x()) / 2,
+                                     startPos.y() - 50 - abs(startPos.x() - endPos.x()) / 4); // Учитываем расстояние для сгиба
+                path.quadTo(controlPoint, endPos);
+
+                // Добавляем путь дуги
+                scene->addPath(path, QPen(Qt::black));
+
+                // Текст для веса дуги
+                QPointF textPos = (startPos + endPos) / 2 + QPointF(0, -20); // Немного поднимаем текст
+                scene->addText(QString::number(arc.GetWeight()))->setPos(textPos);
+            }
         }
+    }
 
         QMessageBox::information(this, "Результат", "Топологическая сортировка выполнена!");
 }
@@ -291,6 +293,7 @@ void MainWindow::clearScene() {
 
 int main(int argc, char *argv[]) {
     TestDijkstra();
+    TestTopologicalSort();
     QApplication app(argc, argv);
 
     MainWindow window;

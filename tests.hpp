@@ -53,6 +53,70 @@ void TestDijkstra() {
     assert(path3[0] == 0 && path3[1] == 2 && path3[2] == 1);
 }
 
+void TestTopologicalSort() {
+    // Test 1: Acyclic graph with correct topological order
+    Graph<int> graph1;
+    graph1.AddVertex(0);
+    graph1.AddVertex(1);
+    graph1.AddVertex(2);
+    graph1.AddVertex(3);
+    graph1.AddArc(0, 1, 1);
+    graph1.AddArc(1, 2, 1);
+    graph1.AddArc(2, 3, 1);
 
+    DynamicArray<int> result1;
+    graph1.topologicalSort(result1);
+    assert(result1.get_size() == 4);
+    assert(result1[0] == 0);
+    assert(result1[1] == 1);
+    assert(result1[2] == 2);
+    assert(result1[3] == 3);
+
+    // Test 2: Graph with a cycle
+    Graph<int> graph2;
+    graph2.AddVertex(0);
+    graph2.AddVertex(1);
+    graph2.AddVertex(2);
+    graph2.AddArc(0, 1, 1);
+    graph2.AddArc(1, 2, 1);
+    graph2.AddArc(2, 0, 1); // Cycle here
+
+    DynamicArray<int> result2;
+    graph2.topologicalSort(result2);
+    assert(result2.get_size() == 0); // Topological sort should be impossible
+
+    // Test 3: Empty graph
+    Graph<int> graph3;
+
+    DynamicArray<int> result3;
+    graph3.topologicalSort(result3);
+    assert(result3.get_size() == 0); // Empty graph, no topological order
+
+    // Test 4: Graph with a single node
+    Graph<int> graph4;
+    graph4.AddVertex(0);
+
+    DynamicArray<int> result4;
+    graph4.topologicalSort(result4);
+    assert(result4.get_size() == 1);
+    assert(result4[0] == 0);
+
+    // Test 5: Graph with multiple components
+    Graph<int> graph5;
+    graph5.AddVertex(0);
+    graph5.AddVertex(1);
+    graph5.AddVertex(2);
+    graph5.AddVertex(3);
+    graph5.AddArc(0, 1, 1);
+    graph5.AddArc(2, 3, 1);
+
+    DynamicArray<int> result5;
+    graph5.topologicalSort(result5);
+    assert(result5.get_size() == 4);
+    assert((result5[0] == 0 && result5[1] == 1 && result5[2] == 2 && result5[3] == 3) ||
+           (result5[0] == 2 && result5[1] == 3 && result5[2] == 0 && result5[3] == 1));
+        
+
+}
 
 #endif //LAB4_TESTS
