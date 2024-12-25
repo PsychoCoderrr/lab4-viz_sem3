@@ -851,6 +851,7 @@
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/DynamicArray.hpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Graph.hpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphParts.hpp \
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Path.hpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/iterator/iterator.hpp \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/q20functional.h \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/q20memory.h \

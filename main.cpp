@@ -18,6 +18,7 @@
 #include "MainWindow.hpp"
 #include "GraphScene.hpp"
 #include "tests.hpp"
+#include "Path.hpp"
 
 GraphScene::GraphScene(Graph<int> *graph, QObject *parent)
     : QGraphicsScene(parent), graph(graph), currentVertexId(0), startVertex(nullptr) {}
@@ -130,17 +131,17 @@ void MainWindow::runDijkstra() {
             return;
         }
 
-        auto [dist, path] = graph->Dijkstra(selectedStartVertex, selectedEndVertex);
+        Path item = graph->Dijkstra(selectedStartVertex, selectedEndVertex);
 
-        if (path.get_size() < 2) {
+    if (item.GetPath().get_size() < 2) {
             QMessageBox::information(this, "Результат", "Кратчайший путь не найден!");
             return;
         }
 
         // Подсвечиваем путь
-        for (size_t i = 0; i < path.get_size() - 1; ++i) {
-            int u = path[i];
-            int v = path[i + 1];
+    for (size_t i = 0; i < item.GetPath().get_size() - 1; ++i) {
+        int u = item.GetPath()[i];
+        int v = item.GetPath()[i + 1];
 
             for (auto &item : scene->items()) {
                 auto *line = qgraphicsitem_cast<QGraphicsLineItem *>(item);
@@ -209,40 +210,42 @@ void MainWindow::runTopologicalSort() {
 //    QMessageBox::information(this, "Результат", "Топологическая сортировка выполнена!");
     DynamicArray<int> sortedVertices;
 
-        // Проверка на наличие цикла
-        if (graph->hasCycle()) {
-            QMessageBox::warning(this, "Ошибка", "Граф содержит цикл! Топологическая сортировка невозможна.");
-            return;
-        }
+    // Проверка на наличие цикла
+    if (graph->hasCycle()) {
+        QMessageBox::warning(this, "Ошибка", "Граф содержит цикл! Топологическая сортировка невозможна.");
+        return;
+    }
 
-        // Выполняем топологическую сортировку
-        graph->topologicalSort(sortedVertices);
+    // Выполняем топологическую сортировку
+    graph->topologicalSort(sortedVertices);
+    
+    
+    // Очищаем сцену
+    scene->clear();
+    QVector<QPointF> vertexPositions; // Храним позиции вершин
 
-        // Очищаем сцену
-        scene->clear();
-        QVector<QPointF> vertexPositions; // Храним позиции вершин
+    // Добавляем вершины в сцену
+    for (size_t i = 0; i < sortedVertices.get_size(); ++i) {
+        QPointF pos(i * 100 + 50, 100); // Позиция для вершины
+        auto *vertex = scene->addEllipse(pos.x() - 15, pos.y() - 15, 30, 30, QPen(Qt::black), QBrush(Qt::blue));
+        vertex->setData(0, sortedVertices[i]);
+        scene->addText(QString::number(sortedVertices[i]))->setPos(pos.x() - 5, pos.y() - 25);
 
-        // Добавляем вершины в сцену
-        for (size_t i = 0; i < sortedVertices.get_size(); ++i) {
-            QPointF pos(i * 100 + 50, 100); // Позиция для вершины
-            auto *vertex = scene->addEllipse(pos.x() - 15, pos.y() - 15, 30, 30, QPen(Qt::black), QBrush(Qt::blue));
-            vertex->setData(0, sortedVertices[i]);
-            scene->addText(QString::number(sortedVertices[i]))->setPos(pos.x() - 5, pos.y() - 25);
-
-            vertexPositions.append(pos); // Сохраняем позицию вершины
-        }
-
-
+        vertexPositions.append(pos); // Сохраняем позицию вершины
+    }
+    
+    
+    
     for (size_t i = 0; i < sortedVertices.get_size(); ++i) {
         int fromVertex = sortedVertices[i];
 
+        
         // Ищем вершину по её имени
-        for (const auto &arc : graph->Get(fromVertex).list) {
+        for (const auto &arc : graph->Get(fromVertex).GetEdges()) {
             int toVertex = arc.GetLast();
-
             // Определяем индексы вершин
             int fromIndex = -1, toIndex = -1;
-            for (size_t j = 0; j < sortedVertices.get_size(); ++j) {
+            for (int j = 0; j < sortedVertices.get_size(); ++j) {
                 if (sortedVertices[j] == fromVertex) {
                     fromIndex = j;
                 }
@@ -250,9 +253,10 @@ void MainWindow::runTopologicalSort() {
                     toIndex = j;
                 }
             }
-
+            
             // Убеждаемся, что обе вершины найдены
             if (fromIndex != -1 && toIndex != -1) {
+                
                 QPointF startPos = vertexPositions[fromIndex];
                 QPointF endPos = vertexPositions[toIndex];
 

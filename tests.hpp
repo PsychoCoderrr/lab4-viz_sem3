@@ -27,8 +27,8 @@ void TestDijkstra() {
 
     // Тест 1: Кратчайший путь от вершины 0 к вершине 3
     auto result1 = graph.Dijkstra(0, 3);
-    auto dist1 = result1.first;
-    auto path1 = result1.second;
+    auto dist1 = result1.GetDistances();
+    auto path1 = result1.GetPath();
 
     assert(dist1[3] == 9); // Проверяем стоимость пути
     assert(path1.get_size() == 4); // Проверяем длину пути
@@ -36,8 +36,8 @@ void TestDijkstra() {
 
     // Тест 2: Кратчайший путь от вершины 0 к вершине 4
     auto result2 = graph.Dijkstra(0, 4);
-    auto dist2 = result2.first;
-    auto path2 = result2.second;
+    auto dist2 = result2.GetDistances();
+    auto path2 = result2.GetPath();
 
     assert(dist2[4] == 5);
     assert(path2.get_size() == 3);
@@ -45,8 +45,8 @@ void TestDijkstra() {
 
     // Тест 3: Кратчайший путь от вершины 0 к вершине 1
     auto result3 = graph.Dijkstra(0, 1);
-    auto dist3 = result3.first;
-    auto path3 = result3.second;
+    auto dist3 = result3.GetDistances();
+    auto path3 = result3.GetPath();
 
     assert(dist3[1] == 7);
     assert(path3.get_size() == 3);

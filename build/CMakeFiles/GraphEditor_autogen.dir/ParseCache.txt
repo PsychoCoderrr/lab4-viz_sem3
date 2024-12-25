@@ -1890,6 +1890,7 @@
  mdp:/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Graph.hpp
  mdp:/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphParts.hpp
  mdp:/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphScene.hpp
+ mdp:/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Path.hpp
  mdp:/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor_autogen/moc_predefs.h
  mdp:/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/iterator/iterator.hpp
  mdp:/opt/homebrew/Cellar/qt/6.7.3/lib/QtCore.framework/Versions/A/Headers/q20functional.h

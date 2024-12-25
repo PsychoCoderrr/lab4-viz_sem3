@@ -38,17 +38,44 @@ public:
     }
 };
 
-
-
 template<typename T>
-struct Vertex
+class Vertex
 {
+private:
     T name;
-    std::list<Edge<T>> list;
+    std::list<Edge<T>> edges;
+public:
+    Vertex() : name(), edges() {};
     
-    Vertex() = default;
+    Vertex(T name) : name(name) {};
+    
+    const std::list<Edge<T>> &GetEdges() const
+    {
+        return edges;
+    }
+    
+    T GetName() const
+    {
+        return name;
+    }
+    
+    void AddEdgeV(const Edge<T> &edge)
+    {
+        edges.push_back(edge);
+    }
 
-    Vertex(T name) : name(name), list() {}
 };
+
+
+//template<typename T>
+//struct Vertex
+//{
+//    T name;
+//    std::list<Edge<T>> list;
+//    
+//    Vertex() = default;
+//
+//    Vertex(T name) : name(name), list() {}
+//};
 
 #endif //LAB4_GRAPH_PARTS

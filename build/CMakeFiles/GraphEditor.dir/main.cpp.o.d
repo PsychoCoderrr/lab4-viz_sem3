@@ -883,6 +883,7 @@ CMakeFiles/GraphEditor.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/queue \
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Path.hpp \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/QApplication \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/qapplication.h \
   /opt/homebrew/Cellar/qt/6.7.3/include/QtWidgets/qtwidgetsglobal.h \

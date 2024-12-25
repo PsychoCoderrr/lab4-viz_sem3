@@ -1067,6 +1067,7 @@ CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/queue \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphParts.hpp \
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Path.hpp \
   /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qtmochelpers.h \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor_autogen/EWIEGA46WW/moc_MainWindow.cpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor_autogen/EWIEGA46WW/../../../MainWindow.hpp \
