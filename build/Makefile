@@ -166,6 +166,30 @@ GraphEditor_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphEditor.dir/build.make CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.s
 .PHONY : GraphEditor_autogen/mocs_compilation.cpp.s
 
+HelpfulFunc.o: HelpfulFunc.cpp.o
+.PHONY : HelpfulFunc.o
+
+# target to build an object file
+HelpfulFunc.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphEditor.dir/build.make CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.o
+.PHONY : HelpfulFunc.cpp.o
+
+HelpfulFunc.i: HelpfulFunc.cpp.i
+.PHONY : HelpfulFunc.i
+
+# target to preprocess a source file
+HelpfulFunc.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphEditor.dir/build.make CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.i
+.PHONY : HelpfulFunc.cpp.i
+
+HelpfulFunc.s: HelpfulFunc.cpp.s
+.PHONY : HelpfulFunc.s
+
+# target to generate assembly for a file
+HelpfulFunc.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GraphEditor.dir/build.make CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.s
+.PHONY : HelpfulFunc.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -203,6 +227,9 @@ help:
 	@echo "... GraphEditor_autogen/mocs_compilation.o"
 	@echo "... GraphEditor_autogen/mocs_compilation.i"
 	@echo "... GraphEditor_autogen/mocs_compilation.s"
+	@echo "... HelpfulFunc.o"
+	@echo "... HelpfulFunc.i"
+	@echo "... HelpfulFunc.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

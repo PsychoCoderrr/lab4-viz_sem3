@@ -21,6 +21,8 @@ private slots:
     void clearScene();
     void runTopologicalSort();
     void runDijkstra();
+    void addArrowWithWeight(QPointF start, QPointF end, int weight);
+    void loadGraphFromFile();
 private:
     Graph<int> *graph;
     GraphScene *scene;

@@ -883,7 +883,27 @@ CMakeFiles/GraphEditor.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/queue \
-  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Path.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/fstream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/filesystem \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/file_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/file_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/perms.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/file_clock.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/path.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/iomanip \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/operations.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/perm_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/space_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/directory_iterator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/directory_options.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__filesystem/u8path.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/sstream \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/QApplication \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/qapplication.h \
   /opt/homebrew/Cellar/qt/6.7.3/include/QtWidgets/qtwidgetsglobal.h \
@@ -982,7 +1002,6 @@ CMakeFiles/GraphEditor.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/concepts.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/hh_mm_ss.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/day.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/file_clock.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/month.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/month_weekday.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__chrono/weekday.h \
@@ -1123,7 +1142,18 @@ CMakeFiles/GraphEditor.dir/main.cpp.o: \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/QMessageBox \
   /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/qmessagebox.h \
   /opt/homebrew/Cellar/qt/6.7.3/include/QtWidgets/qdialogbuttonbox.h \
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/Path.hpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/MainWindow.hpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/GraphScene.hpp \
   /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/tests.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/cassert
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/cassert \
+  /Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/HelpfulFunc.hpp \
+  /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/QFileDialog \
+  /opt/homebrew/Cellar/qt/6.7.3/lib/QtWidgets.framework/Headers/qfiledialog.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qdir.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qfile.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qfiledevice.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qfileinfo.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qdatetime.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qcalendar.h \
+  /opt/homebrew/Cellar/qt/6.7.3/include/QtCore/qtimezone.h

@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "GraphEditor_autogen"
   "CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.o.d"
+  "CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.o"
+  "CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.o.d"
   "CMakeFiles/GraphEditor.dir/main.cpp.o"
   "CMakeFiles/GraphEditor.dir/main.cpp.o.d"
   "GraphEditor"

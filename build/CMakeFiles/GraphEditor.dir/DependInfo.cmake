@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "GraphEditor_autogen/timestamp" "custom" "GraphEditor_autogen/deps"
   "/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/build/GraphEditor_autogen/mocs_compilation.cpp" "CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/GraphEditor.dir/GraphEditor_autogen/mocs_compilation.cpp.o.d"
+  "/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/HelpfulFunc.cpp" "CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.o" "gcc" "CMakeFiles/GraphEditor.dir/HelpfulFunc.cpp.o.d"
   "/Users/vitalijkoldasev/Desktop/laboratories_3_sem/try_qt/try_qt/main.cpp" "CMakeFiles/GraphEditor.dir/main.cpp.o" "gcc" "CMakeFiles/GraphEditor.dir/main.cpp.o.d"
   )
 

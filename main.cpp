@@ -19,6 +19,8 @@
 #include "GraphScene.hpp"
 #include "tests.hpp"
 #include "Path.hpp"
+#include "HelpfulFunc.hpp"
+#include <QFileDialog>
 
 GraphScene::GraphScene(Graph<int> *graph, QObject *parent)
     : QGraphicsScene(parent), graph(graph), currentVertexId(0), startVertex(nullptr) {}
@@ -28,6 +30,12 @@ void GraphScene::setGraph(Graph<int> *newGraph) {
     this->currentVertexId = 0;
     this->startVertex = nullptr;
 }
+
+//void GraphScene::setGraph(Graph<int> *newGraph) {
+//    this->graph = newGraph;
+//    this->currentVertexId = newGraph->GetSize(); // Обновляем ID для новых вершин
+//    this->startVertex = nullptr;
+//}
 
 void GraphScene::mousePressEvent(QGraphicsSceneMouseEvent *event) {
     QPointF pos = event->scenePos();
@@ -130,23 +138,22 @@ void MainWindow::runDijkstra() {
             QMessageBox::warning(this, "Ошибка", "Выберите начальную и конечную вершины для поиска!");
             return;
         }
-
         Path item = graph->Dijkstra(selectedStartVertex, selectedEndVertex);
-
     if (item.GetPath().get_size() < 2) {
             QMessageBox::information(this, "Результат", "Кратчайший путь не найден!");
             return;
         }
+    SetShortestPathIntoFile(graph, item);
+        for (size_t i = 0; i < item.GetPath().get_size() - 1; ++i) {
+            int u = item.GetPath()[i];
+            int v = item.GetPath()[i + 1];
 
-        // Подсвечиваем путь
-    for (size_t i = 0; i < item.GetPath().get_size() - 1; ++i) {
-        int u = item.GetPath()[i];
-        int v = item.GetPath()[i + 1];
-
-            for (auto &item : scene->items()) {
+            // Ищем линию, которая соединяет вершины u и v
+            for (auto *item : scene->items()) {
                 auto *line = qgraphicsitem_cast<QGraphicsLineItem *>(item);
                 if (line && line->data(0).toInt() == u && line->data(1).toInt() == v) {
-                    line->setPen(QPen(Qt::red, 3));
+                    line->setPen(QPen(Qt::red, 3));  // Подсвечиваем линию
+                    break;
                 }
             }
         }
@@ -175,6 +182,10 @@ MainWindow::MainWindow(QWidget *parent)
     auto *dijkstraButton = new QPushButton("Алгоритм Дейкстры", this);
     layout->addWidget(dijkstraButton);
     connect(dijkstraButton, &QPushButton::clicked, this, &MainWindow::runDijkstra);
+        
+        auto *loadGraphButton = new QPushButton("Загрузить граф", this);
+        layout->addWidget(loadGraphButton);
+        connect(loadGraphButton, &QPushButton::clicked, this, &MainWindow::loadGraphFromFile);
 
 
     connect(scene, &GraphScene::verticesSelected, this, [this](int start, int end) {
@@ -188,26 +199,6 @@ MainWindow::MainWindow(QWidget *parent)
 }
 
 void MainWindow::runTopologicalSort() {
-//    DynamicArray<int> sortedVertices;
-//    
-//    if (graph->hasCycle()) {
-//        QMessageBox::warning(this, "Ошибка", "Граф содержит цикл! Топологическая сортировка невозможна.");
-//        return;
-//    }
-//    
-//    graph->topologicalSort(sortedVertices);
-//    
-//    // Перестраиваем граф
-//    scene->clear();
-//
-//    for (size_t i = 0; i < sortedVertices.get_size(); ++i) {
-//        QPointF pos(i * 100 + 50, 100);
-//        auto *vertex = scene->addEllipse(pos.x() - 15, pos.y() - 15, 30, 30, QPen(Qt::black), QBrush(Qt::blue));
-//        vertex->setData(0, sortedVertices[i]);
-//        scene->addText(QString::number(sortedVertices[i]))->setPos(pos.x() - 5, pos.y() - 25);
-//    }
-//
-//    QMessageBox::information(this, "Результат", "Топологическая сортировка выполнена!");
     DynamicArray<int> sortedVertices;
 
     // Проверка на наличие цикла
@@ -278,6 +269,103 @@ void MainWindow::runTopologicalSort() {
 
         QMessageBox::information(this, "Результат", "Топологическая сортировка выполнена!");
 }
+
+
+void MainWindow::loadGraphFromFile() {
+    QString fileName = QFileDialog::getOpenFileName(this, "Открыть файл графа", "", "Текстовые файлы (*.txt)");
+    if (fileName.isEmpty()) {
+        return; // Пользователь отменил выбор файла
+    }
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Ошибка", "Не удалось открыть файл!");
+        return;
+    }
+
+    QTextStream in(&file);
+
+    // Читаем первую строку (список всех вершин)
+    QString line = in.readLine();
+    QStringList vertices = line.split(',');
+
+    // Очищаем текущую сцену и граф
+    clearScene();
+
+    // Добавляем вершины в граф
+    QVector<QGraphicsEllipseItem *> vertexItems; // Храним графические вершины
+    QVector<QPointF> vertexPositions; // Храним позиции для дуг
+    for (int i = 0; i < vertices.size(); ++i) {
+        int vertexId = vertices[i].toInt();
+        graph->AddVertex(vertexId);
+
+        // Располагаем вершины на сцене
+        double angle = i * (2 * M_PI / vertices.size());
+        QPointF pos(300 + 200 * std::cos(angle), 300 + 200 * std::sin(angle)); // Центр в (300, 300), радиус 200
+        auto *vertex = scene->addEllipse(pos.x() - 15, pos.y() - 15, 30, 30, QPen(Qt::black), QBrush(Qt::blue));
+        vertex->setData(0, vertexId); // Привязываем ID к графической вершине
+        scene->addText(QString::number(vertexId))->setPos(pos.x() - 5, pos.y() - 25);
+
+        vertexItems.append(vertex); // Сохраняем вершину
+        vertexPositions.append(pos); // Сохраняем позицию
+    }
+
+    // Читаем последующие строки (дуги)
+    while (!in.atEnd()) {
+        line = in.readLine();
+        QStringList edgeData = line.split(',');
+        if (edgeData.size() != 3) {
+            QMessageBox::warning(this, "Ошибка", "Неверный формат строки: " + line);
+            continue;
+        }
+
+        int fromVertex = edgeData[0].toInt();
+        int toVertex = edgeData[1].toInt();
+        int weight = edgeData[2].toInt();
+
+        // Добавляем дугу в граф
+        graph->AddArc(fromVertex, toVertex, weight);
+
+        // Рисуем дугу на сцене
+        QPointF startPos, endPos;
+        for (int i = 0; i < vertexItems.size(); ++i) {
+            if (vertexItems[i]->data(0).toInt() == fromVertex) startPos = vertexPositions[i];
+            if (vertexItems[i]->data(0).toInt() == toVertex) endPos = vertexPositions[i];
+        }
+
+        addArrowWithWeight(startPos, endPos, weight);
+    }
+
+    file.close();
+
+    // Обновляем связи между сценой и логикой
+    scene->setGraph(graph); // Устанавливаем граф для сцены
+    connect(scene, &GraphScene::verticesSelected, this, [this](int start, int end) {
+        this->selectedStartVertex = start;
+        this->selectedEndVertex = end;
+    });
+}
+
+void MainWindow::addArrowWithWeight(QPointF start, QPointF end, int weight) {
+    QLineF line(start, end);
+    scene->addLine(line, QPen(Qt::black));
+    
+    // Добавляем стрелку
+    double angle = std::atan2(-line.dy(), line.dx());
+    QPointF arrowP1 = end - QPointF(std::sin(angle - M_PI / 3) * 10, std::cos(angle - M_PI / 3) * 10);
+    QPointF arrowP2 = end - QPointF(std::sin(angle + M_PI / 3) * 10, std::cos(angle + M_PI / 3) * 10);
+    scene->addPolygon(QPolygonF() << end << arrowP1 << arrowP2, QPen(Qt::black), QBrush(Qt::black));
+
+    // Добавляем текст с весом
+    QPointF textPos = (start + end) / 2 + QPointF(0, -10); // Над линией
+    scene->addText(QString::number(weight))->setPos(textPos);
+}
+
+
+
+
+
+
 
 void MainWindow::clearScene() {
     scene->clear(); 

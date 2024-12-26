@@ -26,6 +26,7 @@ set(CMAKE_AUTORCC ON)
 # Добавляем исходные файлы проекта
 set(SOURCES
     main.cpp
+    HelpfulFunc.cpp
 )
 
 # Добавляем заголовочные файлы
@@ -35,6 +36,7 @@ set(HEADERS
     DynamicArray.hpp
     GraphScene.hpp
     MainWindow.hpp
+    HelpfulFunc.hpp
 )
 
 # Добавляем исполняемый файл

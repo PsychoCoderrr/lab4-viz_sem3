@@ -4,10 +4,23 @@
 #include <list>
 #include <stack>
 #include <queue>
+#include <fstream>
+#include <sstream>
+#include <QApplication>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsEllipseItem>
+#include <QGraphicsLineItem>
+#include <QVBoxLayout>
+#include <QWidget>
+#include <QPushButton>
+#include <QLabel>
+#include <QGraphicsSceneMouseEvent>
+#include <QInputDialog>
+#include <QMessageBox>
 #include "GraphParts.hpp"
 #include <vector>
 #include "Path.hpp"
-
 
 template<typename T>
 class Graph
@@ -204,14 +217,14 @@ public:
 //    }
     
     
-    Path Dijkstra(int startVertexIndex, int endVertexIndex) {
+    Path<T> Dijkstra(int startVertexIndex, int endVertexIndex) {
         int numVertices = GetSize();
         DynamicArray<int> dist(numVertices, INT_MAX);
         DynamicArray<int> prev(numVertices, -1);
         DynamicArray<bool> visited(numVertices, false);
-
+        
         dist[startVertexIndex] = 0;
-
+        
         for (int i = 0; i < numVertices; ++i) {
             int u = -1;
             for (int j = 0; j < numVertices; ++j) {
@@ -237,7 +250,7 @@ public:
             }
         }
 
-        DynamicArray<int> path;
+        DynamicArray<T> path;
         for (int at = endVertexIndex; at != -1; at = prev[at]) {
             path.push_back(at);
         }
@@ -456,6 +469,6 @@ private:
         return false;
     }
 };
-    
+
 
 #endif //LAB4_GRAPH

@@ -2,15 +2,16 @@
 #define LAB4_PATH
 #include "DynamicArray.hpp"
 
+template<typename T>
 class Path
 {
 private:
     DynamicArray<int> distances;
-    DynamicArray<int> path;
+    DynamicArray<T> path;
 public:
     Path() = default;
     
-    Path(DynamicArray<int>& distances_, DynamicArray<int>& path_)
+    Path(DynamicArray<int>& distances_, DynamicArray<T>& path_)
     {
         distances = distances_;
         path = path_;
@@ -21,7 +22,7 @@ public:
         return distances;
     }
     
-    DynamicArray<int> GetPath()
+    DynamicArray<T> GetPath()
     {
         return path;
     }
