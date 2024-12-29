@@ -6,7 +6,6 @@ void SetShortestPathIntoFile(Graph<int>* graph, Path<int>& item) {
         throw std::runtime_error("Unable to open output file");
     }
     
-    // Запись всех вершин графа
     outFile << "Vertices: ";
     for (int i = 0; i < graph->GetSize(); i++) {
         outFile << graph->Get(i).GetName();
@@ -16,7 +15,6 @@ void SetShortestPathIntoFile(Graph<int>* graph, Path<int>& item) {
     }
     outFile << std::endl;
     
-    // Запись всех рёбер графа
     for (int i = 0; i < graph->GetSize(); i++) {
         const Vertex<int>& vertex = graph->Get(graph->Get(i).GetName());
         for (const auto& edge : vertex.GetEdges()) {
@@ -24,7 +22,6 @@ void SetShortestPathIntoFile(Graph<int>* graph, Path<int>& item) {
         }
     }
     
-    // Запись кратчайшего пути
     const auto& path = item.GetPath();
     const auto& distances = item.GetDistances();
     

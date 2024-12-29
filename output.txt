@@ -1,6 +1,7 @@
-Vertices: 0, 1, 2
+Vertices: 0, 1, 2, 3
 0 -> 1 : 1
 0 -> 2 : 1
 1 -> 2 : 1
-Shortest path: 0 -> 2
-Total distance: 1
+2 -> 3 : 1
+Shortest path: 0 -> 2 -> 3
+Total distance: 2

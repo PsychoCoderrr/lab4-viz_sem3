@@ -203,19 +203,6 @@ public:
         }
     }
     
-//    void Print()
-//    {
-//        for (auto &i: graph)
-//        {
-//            std::cout << "VertexName: " << i.name << " { ";
-//            for (auto &it: i.list)
-//            {
-//                std::cout << "[" << it.GetFirst() << "-" << it.GetLast() << ":" << it.GetWeight() << "] ";
-//            }
-//            std::cout << "}" << std::endl;
-//        }
-//    }
-    
     
     Path<T> Dijkstra(int startVertexIndex, int endVertexIndex) {
         int numVertices = GetSize();
